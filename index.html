@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paws & Care Veterinary Clinic</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fffaf3;
+    color: #34433a;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: #173f35;
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #f3d49c;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav a:hover,
+nav a.active {
+    color: #f2c982;
+}
+
+/* PAGE NAVIGATION */
+
+.page {
+    display: none;
+    min-height: 70vh;
+}
+
+.page.active {
+    display: block;
+}
+
+/* HOME */
+
+.hero {
+    min-height: 540px;
+    background:
+    linear-gradient(90deg, rgba(10,35,27,.85), rgba(10,35,27,.15)),
+    url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600")
+    center/cover;
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #e3b76f;
+    color: #173f35;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #f6d59d;
+}
+
+.section {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 34px;
+    color: #205a46;
+    margin-bottom: 15px;
+}
+
+.section p {
+    max-width: 850px;
+    margin: 10px auto;
+}
+
+/* CARDS */
+
+.cards {
+    padding: 35px 6% 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.10);
+    transition: .3s;
+    padding-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card h3 {
+    color: #205a46;
+    margin: 15px 0 8px;
+}
+
+.card p {
+    padding: 0 15px;
+}
+
+/* PAGE BANNER */
+
+.banner {
+    background: linear-gradient(120deg, #214f40, #648773);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.banner h1 {
+    font-size: 40px;
+}
+
+/* ABOUT */
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 55px 8%;
+}
+
+.about-content img {
+    width: 45%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-content div {
+    flex: 1;
+}
+
+.about-content h2 {
+    color: #205a46;
+    margin-bottom: 15px;
+}
+
+/* PET CARE */
+
+.tip {
+    background: #e8f0e7;
+    padding: 18px;
+    margin: 12px auto;
+    border-radius: 10px;
+    max-width: 750px;
+}
+
+/* CONTACT */
+
+.contact-container {
+    padding: 50px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+}
+
+.contact-info {
+    background: #e8f0e7;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.contact-info h2,
+form h2 {
+    color: #205a46;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 18px 0;
+}
+
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 16px;
+    border: 1px solid #ccd6cc;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    height: 100px;
+}
+
+form button {
+    width: 100%;
+}
+
+/* FOOTER */
+
+footer {
+    background: #173f35;
+    color: white;
+    text-align: center;
+    padding: 23px;
+    margin-top: 25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-content img {
+        width: 100%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 550px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .banner h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER AND NAVIGATION -->
+
+<header>
+    <div class="logo">🐾 Paws & Care</div>
+
+    <nav>
+        <a onclick="showPage('home')" class="active">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('pets')">Pets & Care</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </nav>
+</header>
+
+
+<!-- HOME PAGE -->
+
+<div id="home" class="page active">
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Love, Care & Health For Your Pets</h1>
+
+            <p>
+                Your pets deserve the best care.
+                We provide professional veterinary
+                services with love and compassion.
+            </p>
+
+            <button class="btn" onclick="showPage('contact')">
+                Book Appointment
+            </button>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Welcome to Paws & Care</h2>
+
+        <p>
+            We believe every pet deserves a healthy and happy life.
+            Our veterinary clinic provides caring services for
+            dogs, cats and other lovely animals.
+        </p>
+    </section>
+
+    <section class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600" alt="Veterinary care">
+            <h3>Expert Veterinary Care</h3>
+            <p>Professional treatment for your lovely pets.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=600" alt="Cute cat">
+            <h3>Pet Wellness</h3>
+            <p>Regular checkups and vaccination services.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600" alt="Golden retriever">
+            <h3>Happy Pets</h3>
+            <p>Helping your pets live a healthy life.</p>
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ABOUT PAGE -->
+
+<div id="about" class="page">
+
+    <section class="banner">
+        <h1>About Our Clinic</h1>
+        <p>Compassionate care for every little paw.</p>
+    </section>
+
+    <section class="about-content">
+
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=900" alt="Happy dog receiving care">
+
+        <div>
+            <h2>Who We Are</h2>
+
+            <p>
+                Paws & Care is a friendly veterinary clinic
+                dedicated to the health and happiness of pets.
+            </p>
+
+            <p>
+                Our clinic provides quality veterinary care,
+                professional guidance and a comfortable
+                environment for pets and their owners.
+            </p>
+
+            <h2>Our Mission</h2>
+
+            <p>
+                Our mission is to make every pet healthy,
+                safe and happy through love, attention
+                and responsible veterinary care.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="section">
+        <h2>Why Choose Us?</h2>
+        <p>♥ Friendly veterinary team</p>
+        <p>♥ Modern pet care facilities</p>
+        <p>♥ Quality health services</p>
+        <p>♥ Care and comfort for every pet</p>
+    </section>
+
+</div>
+
+
+<!-- SERVICES PAGE -->
+
+<div id="services" class="page">
+
+    <section class="banner">
+        <h1>Our Veterinary Services</h1>
+        <p>Complete care for your beloved pets.</p>
+    </section>
+
+    <section class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600" alt="Pet examination">
+            <h3>Health Checkup</h3>
+            <p>Routine examinations to monitor pet health.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=600" alt="Dog care">
+            <h3>Vaccination</h3>
+            <p>Vaccination services to protect your pets.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600" alt="Pet grooming">
+            <h3>Pet Grooming</h3>
+            <p>Bathing, brushing and grooming services.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600" alt="Cat">
+            <h3>Dental Care</h3>
+            <p>Oral health examinations and dental care.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1558944351-c9c5a7c7b8d9?w=600" alt="Veterinary treatment">
+            <h3>Surgery</h3>
+            <p>Professional veterinary surgical care when needed.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600" alt="Cat nutrition">
+            <h3>Pet Nutrition</h3>
+            <p>Guidance about healthy pet food and nutrition.</p>
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- PETS AND CARE PAGE -->
+
+<div id="pets" class="page">
+
+    <section class="banner">
+        <h1>Pets & Care</h1>
+        <p>Learn how to give your pets a healthy lifestyle.</p>
+    </section>
+
+    <section class="about-content">
+
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=900" alt="Happy dog">
+
+        <div>
+            <h2>Dog Care</h2>
+            <p>
+                Provide clean water, balanced food,
+                regular exercise and proper grooming
+                for your dog.
+            </p>
+            <p>
+                Visit a veterinarian regularly for
+                health checkups and vaccinations.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="about-content">
+
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=900" alt="Cute cat">
+
+        <div>
+            <h2>Cat Care</h2>
+            <p>
+                Provide nutritious food, clean litter,
+                fresh water and a safe environment
+                for your cat.
+            </p>
+            <p>
+                Regular veterinary examinations help
+                maintain good health.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="section">
+        <h2>Important Pet Care Tips</h2>
+
+        <div class="tip">♥ Always provide fresh drinking water.</div>
+        <div class="tip">♥ Keep your pet's surroundings clean.</div>
+        <div class="tip">♥ Give appropriate nutritious food.</div>
+        <div class="tip">♥ Maintain vaccination schedules.</div>
+        <div class="tip">♥ Give your pets love and attention.</div>
+        <div class="tip">♥ Provide regular exercise.</div>
+    </section>
+
+</div>
+
+
+<!-- CONTACT PAGE -->
+
+<div id="contact" class="page">
+
+    <section class="banner">
+        <h1>Contact Our Clinic</h1>
+        <p>We are happy to care for your furry family members.</p>
+    </section>
+
+    <section class="contact-container">
+
+        <div class="contact-info">
+
+            <h2>Get In Touch</h2>
+
+            <p>📍 Address: Your Clinic Address, India</p>
+
+            <p>📞 Phone: +91 9876543210</p>
+
+            <p>✉ Email: pawscare@example.com</p>
+
+            <p>🕒 Monday - Saturday: 9 AM - 7 PM</p>
+
+            <h3>Our Promise</h3>
+
+            <p>
+                We treat every pet with kindness,
+                patience and professional care.
+            </p>
+
+        </div>
+
+        <form id="appointmentForm">
+
+            <h2>Book an Appointment</h2>
+
+            <input type="text"
+                   placeholder="Your Name" required>
+
+            <input type="tel"
+                   placeholder="Phone Number"
+                   pattern="[0-9+ ]{10,15}" required>
+
+            <input type="text"
+                   placeholder="Pet Name" required>
+
+            <select required>
+                <option value="">Select Pet</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Other</option>
+            </select>
+
+            <select required>
+                <option value="">Select Service</option>
+                <option>Health Checkup</option>
+                <option>Vaccination</option>
+                <option>Grooming</option>
+                <option>Dental Care</option>
+                <option>Surgery Consultation</option>
+            </select>
+
+            <input type="date" id="appointmentDate" required>
+
+            <textarea placeholder="Describe your requirements"></textarea>
+
+            <button type="submit" class="btn">
+                Submit Appointment
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>🐾 Paws & Care Veterinary Clinic</p>
+    <p>Love • Care • Compassion</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// FUNCTION TO CHANGE PAGES
+
+function showPage(pageId) {
+
+    let pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    let links = document.querySelectorAll("nav a");
+
+    links.forEach(function(link) {
+        link.classList.remove("active");
+    });
+
+    links.forEach(function(link) {
+        if(link.getAttribute("onclick") ===
+           "showPage('" + pageId + "')") {
+            link.classList.add("active");
+        }
+    });
+
+    window.scrollTo(0, 0);
+}
+
+
+// APPOINTMENT FORM
+
+document.getElementById("appointmentForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let date = document.getElementById("appointmentDate").value;
+
+    let selectedDate = new Date(date + "T00:00:00");
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if(selectedDate < today) {
+        alert("Please select today or a future date.");
+        return;
+    }
+
+    alert("Thank you! Your appointment request has been submitted successfully.");
+
+    this.reset();
+
+});
+
+
+// SET MINIMUM APPOINTMENT DATE
+
+document.getElementById("appointmentDate")
+.min = new Date().toLocaleDateString("en-CA");
+
+</script>
+
+</body>
+</html>
